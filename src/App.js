@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./Main.scss";
+import "./Components/Header/header.scss";
+import CityList from "./Components/CityList/CityList";
+import Header from "./Components/Header/Header";
+import WeatherInfo from "./Components/WeatherInfo/WeatherInfo";
+import "./index.css";
 
-function App() {
+export default function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main main-layout ">
+      <Header />
+      <section className="WeatherData flex items-start">
+        <CityList Data={props.Data} />
+        <WeatherInfo Data={props.Data} />
+      </section>
+
+      {/* Вынести в отдельную компоненту то что в теге section */}
+      {/* Footer */}
     </div>
   );
 }
-
-export default App;
