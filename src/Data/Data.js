@@ -8,11 +8,11 @@ const KazanKey = `743615`;
 const LondonKey = `1006984`;
 const NewYorkKey = `5128638`;
 
-const SPBAPI = `http://api.openweathermap.org/data/2.5/forecast?id=${SPBKey}&appid=${APIkey}`;
-const MoscowAPI = `http://api.openweathermap.org/data/2.5/forecast?id=${MoscowKey}&appid=${APIkey}`;
-const KazanAPI = `http://api.openweathermap.org/data/2.5/forecast?id=${KazanKey}&appid=${APIkey}`;
-const LondonAPI = `http://api.openweathermap.org/data/2.5/forecast?id=${LondonKey}&appid=${APIkey}`;
-const NewYorkAPI = `http://api.openweathermap.org/data/2.5/forecast?id=${NewYorkKey}&appid=${APIkey}`;
+const SPBAPI = `https://api.openweathermap.org/data/2.5/forecast?id=${SPBKey}&appid=${APIkey}`;
+const MoscowAPI = `https://api.openweathermap.org/data/2.5/forecast?id=${MoscowKey}&appid=${APIkey}`;
+const KazanAPI = `https://api.openweathermap.org/data/2.5/forecast?id=${KazanKey}&appid=${APIkey}`;
+const LondonAPI = `https://api.openweathermap.org/data/2.5/forecast?id=${LondonKey}&appid=${APIkey}`;
+const NewYorkAPI = `https://api.openweathermap.org/data/2.5/forecast?id=${NewYorkKey}&appid=${APIkey}`;
 
 const responseSPB = await fetch(SPBAPI);
 const dataSPB = await responseSPB.json();
