@@ -8,10 +8,13 @@ import {
 
 import { ImageCheck } from "../../../Validation/ImageCheck";
 
+import FutureWeather from "./FutureWeather/FutureWeather";
+
 import "./MainCardStyles/cardButtons.scss";
 import "./MainCardStyles/cardInfo.scss";
 import "./currentWeather.scss";
 
+import Button from "react-bootstrap/Button";
 export default function CurrentWeather(props) {
   let TempCelsium = props.Temperature + " °C";
   let TempFahrenheit =
@@ -43,7 +46,7 @@ export default function CurrentWeather(props) {
   return (
     <div className="MainCard MainCard-layout">
       <section className="Card-header">
-        <div>{ImageCheck(TempCelsium, WeatherDescription)}</div>
+        <div>{ImageCheck(TempCelsium, WeatherDescription, "55px")}</div>
 
         <div className="btn-block">
           <button
@@ -65,17 +68,16 @@ export default function CurrentWeather(props) {
         </div>
       </section>
       <section className=" flex flex-col h-40">
-        <p className="card-temp temp mx-5 mb-7"> {currentValue} </p>
-        <p className="card-date mx-5 ">{Date}</p>
+        <p className="card-temp temp ml-5 mb-7 "> {currentValue} </p>
+        <p className="card-date ml-5 ">{Date}</p>
         <section className="flex items-center">
           <p className="card-hour ml-5 mt-3">{getDay()}</p>
           <div className="card-stick ml-2 mt-3"></div>
           <p className="card-hour ml-2 mt-3">{geTime()}</p>
         </section>
       </section>
-
       {/* Wind rain */}
-      <section className=" flex mb-20 mx-5 items-center">
+      <section className=" flex mb-20 ml-5 items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="23"
@@ -245,6 +247,11 @@ export default function CurrentWeather(props) {
         </svg>
         <span className="wind-info ml-4 ">Hum {Precipitation}%</span>
       </section>
+      <FutureWeather
+        Data={props.FullData}
+        WeatherDescription={props.WeatherDescription}
+        Temperature={props.Temperature}
+      />
     </div>
   );
 }

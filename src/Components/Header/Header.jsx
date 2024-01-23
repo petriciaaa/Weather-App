@@ -3,7 +3,7 @@ import "./header.scss";
 
 export default function Header(props) {
   return (
-    <header className="header">
+    <header className="header ml-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="155"

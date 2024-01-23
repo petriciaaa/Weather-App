@@ -53,7 +53,7 @@ export default function LiveSearch(props) {
             className="mt-3 menu-element__animation slide-in-fwd-center"
           >
             <NavLink
-              to={`weather-app/${item.city.name.trim()}`}
+              to={`/${item.city.name.replaceAll(" ", "")}`}
               className="menu-element menu-element-animation link"
             >
               {" "}

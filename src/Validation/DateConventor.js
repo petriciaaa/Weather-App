@@ -82,4 +82,20 @@ function geTime() {
   let strTime = hours + ":" + minutes + " " + am_pm;
   return strTime;
 }
-export { geTime, getDay };
+
+function getNext4Days() {
+  const today = new Date();
+  const days = ["Sund", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const dayOfWeek = today.getDay();
+  const nextDays = [];
+
+  for (let i = 1; i < 5; i++) {
+    const nextDay = new Date();
+    nextDay.setDate(today.getDate() + ((i + 1 - dayOfWeek) % 7));
+    nextDays.push(days[nextDay.getDay()]);
+  }
+
+  return nextDays;
+}
+
+export { geTime, getDay, getNext4Days };

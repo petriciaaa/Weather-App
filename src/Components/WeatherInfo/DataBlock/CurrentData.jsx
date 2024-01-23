@@ -1,7 +1,6 @@
 import React from "react";
 
 import CurrentWeather from "./CurrentWeather";
-
 import "./currentData.scss";
 
 export default function CurrentWeatherInfo(props) {
@@ -12,13 +11,12 @@ export default function CurrentWeatherInfo(props) {
   // 273 - Celvins
   let Temperature =
     Math.round(parseFloat(FullData.list[0].main.temp - 273) * 10) / 10;
-  let WindSpeed =
-    Math.round(FullData.list[0].wind.speed * 10 * 2.791) / 10 + " km/h";
+  let WindSpeed = Math.round(FullData.list[0].wind.speed * 10) / 10 + " km/h";
   let Precipitation = FullData.list[0].pop;
   let WeatherDescription = FullData.list[0].weather[0].main;
 
   return (
-    <div>
+    <div className="CurrentWeather">
       <CurrentWeather
         className="block"
         CityName={CityName}
@@ -27,6 +25,7 @@ export default function CurrentWeatherInfo(props) {
         Precipitation={Precipitation}
         Date={Date}
         WeatherDescription={WeatherDescription}
+        FullData={FullData}
       />
     </div>
   );

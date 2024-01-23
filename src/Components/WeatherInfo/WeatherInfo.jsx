@@ -9,7 +9,7 @@ export default function WeatherInfo(props) {
   let RouteToData = arr.map(function (element, index) {
     // Path - url in browser that needs to Route component
     // CurrData - Info about currert element of arr (WEATHER iNFO)
-    let Path = element.city.name;
+    let Path = element.city.name.replaceAll(" ", "");
     let CurrData = props.Data[index];
     return (
       <Route path={Path} element={<CurrentWeatherInfo Data={CurrData} />} />
