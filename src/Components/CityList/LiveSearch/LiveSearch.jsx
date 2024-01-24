@@ -30,6 +30,7 @@ export default function LiveSearch(props) {
             filteredCountries(event);
           }}
         />
+        <div className=" w-0.5 h-8 bg-gray-400"></div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="29"

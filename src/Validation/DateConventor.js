@@ -97,5 +97,23 @@ function getNext4Days() {
 
   return nextDays;
 }
+function getDayAndHour(dateString) {
+  const date = new Date(dateString);
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayOfWeek = daysOfWeek[date.getDay()];
+  const hour = date.getHours();
+  const hourIn12HourFormat = hour % 12 || 12;
+  const postscript = hour < 12 ? "am" : "pm";
 
-export { geTime, getDay, getNext4Days };
+  return [dayOfWeek, `${hourIn12HourFormat} ${postscript}`];
+}
+
+export { geTime, getDay, getNext4Days, getDayAndHour };

@@ -5,6 +5,10 @@
   height: 200px;
 }
 .futureDataCard {
+  -webkit-box-shadow: 9px 10px 49px 5px rgba(62, 66, 66, 0.14);
+  -moz-box-shadow: 9px 10px 49px 5px rgba(62, 66, 66, 0.14);
+  box-shadow: 9px 10px 49px 5px rgba(62, 66, 66, 0.14);
+
   cursor: pointer;
   -webkit-transition: 0.8s ease;
   translate: all 1.5s ease;
@@ -53,7 +57,10 @@
   flex-shrink: 0;
   border-radius: 11.385px;
   background: rgba(255, 255, 255, 0.2);
-  filter: blur(0.3692583918571472px);
+  filter: blur(0.42692583918571472px);
+  @media (max-width: 700px) {
+    filter: blur(0px);
+  }
 }
 
 .futureDataCard-temp {
