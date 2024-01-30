@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "./Carousel/Carousel";
+import BasicModal from "./Modals/ModalWindowToWeather";
 import "./futureData.scss";
 
 import {
@@ -10,13 +10,25 @@ import {
 } from "../../../../Validation/DateConventor";
 import { ImageCheck } from "../../../../Validation/ImageCheck";
 
-const getFutureDataCard = function (Temp, WeatherDescription, index, date) {
+const getFutureDataCard = function (
+  Temp,
+  WeatherDescription,
+  Data,
+  date,
+  WindSpeed
+) {
   return (
     <div className=" flex flex-col items-center justify-between futureDataCard futureDataCard-layout bounce-top mx-6">
       <h1 className="futureDataCard-temp mt-3">{Temp}°C </h1>
-      <div className=" w-24 h-24 flex futureDataCard-img">
-        {ImageCheck(Temp, WeatherDescription, "10")}{" "}
-      </div>
+
+      <BasicModal
+        image={ImageCheck(Temp, WeatherDescription, "10")}
+        Data={Data}
+        WeatherDescription={WeatherDescription}
+        Temp={Temp}
+        WindSpeed={WindSpeed}
+      />
+
       <section className="mb-2 flex flex-col justify-center  items-center">
         {/*getDayAndHour(date)[0] - day getDayAndHour(date)[1]-hour  */}
         <h1 className="futureDataCard-date ">{getDayAndHour(date)[0]}</h1>
@@ -44,52 +56,51 @@ export default function FutureWeather(props) {
     return getFutureDataCard(
       cardsTemp[index],
       props.WeatherDescription,
-      index,
-      date
+      Data[index],
+      date,
+      props.WindSpeed
     );
   });
 
-  // Trying useState
-
-  let cardsThreeElements = [];
+  let initialCards = [];
+  let initialCardsLength = 4;
+  //initialCardsLength - how many u want to see in a screen
   for (let index = 0; index < FutureDataCards.length; index++) {
-    if (cardsThreeElements.length < 4) {
-      cardsThreeElements.push(FutureDataCards[index]);
+    if (initialCards.length < initialCardsLength) {
+      initialCards.push(FutureDataCards[index]);
     }
   }
-  // Only God and i understand wtf is going there ))
-  // Using state hook to manage the state of cards and countOfAddedCards
-  const [cards, setCards] = useState(cardsThreeElements);
-  const [countOfAddedCards, setCountOfAddedCards] = useState(0);
+  // Only God and me can understand wtf is going there ))
+  // Using state hook to manage the state of cards and counterOfAddedCards
+  const [cards, setCards] = useState(initialCards);
+  const [counterOfAddedCards, setcounterOfAddedCards] = useState(0);
 
   function arrowButtonClick() {
     setCards((prev) => {
-      if (prev.length) {
+      if (prev.length === 4) {
         return [
           ...prev.slice(1),
-          FutureDataCards[cardsThreeElements.length + countOfAddedCards],
+          FutureDataCards[initialCards.length + counterOfAddedCards],
         ];
       } else {
-        return [...prev];
+        return [cards];
       }
     });
-    setCountOfAddedCards((prev) => prev + 1);
+    setcounterOfAddedCards((prev) => prev + 1);
   }
   useEffect(() => {
-    setCards(cardsThreeElements);
-    setCountOfAddedCards(0);
+    setCards(initialCards);
+    setcounterOfAddedCards(0);
   }, [Data]);
   useEffect(() => {
-    console.log("state changed");
     setCards(cards);
   }, [cards]);
 
   return (
-    <section className="futureData futureData-layout flex items-center justify-center mr-4 ">
-      <Carousel />
+    <section className="futureData futureData-layout  mr-4 ">
+      <section className="futureDataCards">{cards}</section>
 
-      {cards}
-      <button onClick={arrowButtonClick}>
+      <button onClick={arrowButtonClick} className="arrow-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"

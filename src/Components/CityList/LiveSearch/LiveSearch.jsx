@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import "./liveSearch.scss";
 import "../cityList.scss";
@@ -54,7 +54,7 @@ export default function LiveSearch(props) {
             className="mt-3 menu-element__animation slide-in-fwd-center"
           >
             <NavLink
-              to={`/${item.city.name.replaceAll(" ", "")}`}
+              to={`/${item.city.name.replaceAll(" ", "").trim().toLowerCase()}`}
               className="menu-element menu-element-animation link"
             >
               {" "}

@@ -251,6 +251,8 @@ export default function CurrentWeather(props) {
         Data={props.FullData}
         WeatherDescription={props.WeatherDescription}
         Temperature={props.Temperature}
+        WindSpeed={WindSpeed}
+        Precipitation={Precipitation}
       />
     </div>
   );
