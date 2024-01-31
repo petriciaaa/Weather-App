@@ -19,7 +19,9 @@ const style = {
 export default function BasicModal(props) {
   let WeatherDescription = props.WeatherDescription;
   let Data = props.Data;
-
+  let WeatherDetail = props.WeatherDetail;
+  let Temp = props.Temp;
+  let WindSpeed = Math.round(props.WindSpeed * 10) / 10;
   const [weatherDescription, setWeatherDescription] =
     React.useState(WeatherDescription);
   const [open, setOpen] = React.useState(false);
@@ -33,7 +35,7 @@ export default function BasicModal(props) {
   }, [Data]);
 
   return (
-    <div>
+    <>
       <div
         onClick={handleOpen}
         className="w-24 h-24 flex futureDataCard-img items-center"
@@ -54,10 +56,10 @@ export default function BasicModal(props) {
           <Typography id="modal-modal-description" variant="h6" sx={{ mt: 2 }}>
             <h1 className=" text-l"> {weatherDescription.toUpperCase()} </h1>
             {props.Temp}°C <br />
-            {props.WindSpeed}
+            {WindSpeed} km/h
           </Typography>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }

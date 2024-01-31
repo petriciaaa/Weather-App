@@ -14,6 +14,7 @@ export default function CurrentWeatherInfo(props) {
   let WindSpeed = Math.round(FullData.list[0].wind.speed * 10) / 10 + " km/h";
   let Precipitation = FullData.list[0].pop;
   let WeatherDescription = FullData.list[0].weather[0].main;
+  let WeatherDetail = FullData.list[0].weather[0].description;
 
   return (
     <div className="CurrentWeather">
@@ -26,6 +27,7 @@ export default function CurrentWeatherInfo(props) {
         Date={Date}
         WeatherDescription={WeatherDescription}
         FullData={FullData}
+        WeatherDetail={WeatherDetail}
       />
     </div>
   );

@@ -15,18 +15,32 @@ const getFutureDataCard = function (
   WeatherDescription,
   Data,
   date,
-  WindSpeed
+  WindSpeed,
+  WeatherDetail,
+  FullData,
+  index
 ) {
   return (
     <div className=" flex flex-col items-center justify-between futureDataCard futureDataCard-layout bounce-top mx-6">
       <h1 className="futureDataCard-temp mt-3">{Temp}°C </h1>
 
       <BasicModal
-        image={ImageCheck(Temp, WeatherDescription, "10")}
+        // image={ImageCheck(
+        //   Temp,
+        //   WeatherDescription,
+        //   WeatherDetail,
+        //   date.split(" ")[1]
+        // )}
+        image={
+          <img
+            src={` https://openweathermap.org/img/wn/${FullData.weather[0].icon}@4x.png`}
+          />
+        }
         Data={Data}
         WeatherDescription={WeatherDescription}
         Temp={Temp}
         WindSpeed={WindSpeed}
+        date={date}
       />
 
       <section className="mb-2 flex flex-col justify-center  items-center">
@@ -41,31 +55,33 @@ const getFutureDataCard = function (
 export default function FutureWeather(props) {
   let Data = props.Data.list;
   let cardsTemp = [];
+  let WeatherDetail = props.WeatherDetail;
 
-  for (let index = 0; index < Data.length; index++) {
-    //Not equal to zero and %8 to go to the next day at the same time
-    // if (index % 8 === 0 && index !== 0) {
+  for (let index = 1; index < Data.length; index++) {
     let element = Data[index].main.temp;
+    let date = Data[index].dt_txt;
     element = parseFloat(Math.round(element - 273));
     cardsTemp.push(element);
-    // }
   }
 
   let FutureDataCards = cardsTemp.map((element, index) => {
     let date = Data[index].dt_txt;
+
     return getFutureDataCard(
       cardsTemp[index],
       props.WeatherDescription,
       Data[index],
       date,
-      props.WindSpeed
+      Data[index].wind.speed,
+      WeatherDetail,
+      Data[1 + index]
     );
   });
 
   let initialCards = [];
   let initialCardsLength = 4;
   //initialCardsLength - how many u want to see in a screen
-  for (let index = 0; index < FutureDataCards.length; index++) {
+  for (let index = 1; index < FutureDataCards.length; index++) {
     if (initialCards.length < initialCardsLength) {
       initialCards.push(FutureDataCards[index]);
     }

@@ -1,26 +1,5 @@
 import { _Tokens, _APIkey } from "./Constants";
 
-// class DataState {
-//   #Tokens;
-//   #APIkey;
-//   #setWeatherData;
-//   setTokens(Tokens) {
-//     this.#Tokens = Tokens;
-//   }
-//   setAPIkey(APIkey) {
-//     this.#APIkey = APIkey;
-//   }
-//   setsetWeatherData(setWeatherData) {
-//     this.#setWeatherData = setWeatherData;
-//   }
-//   getTokens() {
-//     return this.#Tokens;
-//   }
-//   getAPIkey() {
-//     return this.#APIkey;
-//   }
-// }
-
 export const FetchApiInterface = {
   Tokens: _Tokens,
   APIkey: _APIkey,

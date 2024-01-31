@@ -14,7 +14,7 @@ export default function WeatherInfo(props) {
     // CurrData - Info about currert element of arr (WEATHER iNFO)
     let Path = `/${element.city.name.replaceAll(" ", "").toLowerCase()}`;
     let CurrData = props.Data[index];
-    console.log(Path);
+
     return (
       <Route path={Path} element={<CurrentWeatherInfo Data={CurrData} />} />
     );
