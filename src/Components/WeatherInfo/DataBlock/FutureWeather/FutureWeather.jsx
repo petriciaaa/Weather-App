@@ -25,12 +25,6 @@ const getFutureDataCard = function (
       <h1 className="futureDataCard-temp mt-3">{Temp}°C </h1>
 
       <BasicModal
-        // image={ImageCheck(
-        //   Temp,
-        //   WeatherDescription,
-        //   WeatherDetail,
-        //   date.split(" ")[1]
-        // )}
         image={
           <img
             src={` https://openweathermap.org/img/wn/${FullData.weather[0].icon}@4x.png`}
@@ -81,7 +75,7 @@ export default function FutureWeather(props) {
   let initialCards = [];
   let initialCardsLength = 4;
   //initialCardsLength - how many u want to see in a screen
-  for (let index = 1; index < FutureDataCards.length; index++) {
+  for (let index = 0; index < FutureDataCards.length; index++) {
     if (initialCards.length < initialCardsLength) {
       initialCards.push(FutureDataCards[index]);
     }
@@ -93,12 +87,14 @@ export default function FutureWeather(props) {
 
   function arrowButtonClick() {
     setCards((prev) => {
-      if (prev.length === 4) {
+      if (initialCards.length + counterOfAddedCards <= 38) {
+        console.log(prev.length);
         return [
           ...prev.slice(1),
           FutureDataCards[initialCards.length + counterOfAddedCards],
         ];
       } else {
+        alert("No future data availible");
         return [cards];
       }
     });
