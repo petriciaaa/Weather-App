@@ -88,7 +88,6 @@ export default function FutureWeather(props) {
   function arrowButtonClick() {
     setCards((prev) => {
       if (initialCards.length + counterOfAddedCards <= 38) {
-        console.log(prev.length);
         return [
           ...prev.slice(1),
           FutureDataCards[initialCards.length + counterOfAddedCards],
@@ -119,6 +118,7 @@ export default function FutureWeather(props) {
           height="36"
           viewBox="0 0 36 36"
           fill="none"
+          className="arrow-btn"
         >
           <circle
             cx="18.2569"

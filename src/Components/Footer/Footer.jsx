@@ -9,7 +9,7 @@ export default function Footer() {
       style={{ height: "300px", width: "100%" }}
     >
       {" "}
-      <h6 className=" text-2xl text-white mb-8">2024</h6>
+      <h6 className=" text-2xl text-white mb-8">2024 </h6>
     </footer>
   );
 }
