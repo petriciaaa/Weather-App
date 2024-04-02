@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Main.scss";
+import "./Components/Header/header.scss";
+
+import CityList from "./Components/CityList/CityList";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import WeatherInfo from "./Components/WeatherInfo/WeatherInfo";
+import Loader from "./Loader/Loader";
+
+export default function App(props) {
+  const [weatherData, setWeatherData] = useState([]);
+
+  let Interface = props.FetchApiInterface;
+
+  useEffect(() => {
+    Interface.fetchData(setWeatherData);
+  }, []);
+  if (!weatherData || !weatherData.length) {
+    return <Loader />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main main-layout ">
+      <Header />
+      <main className="WeatherData ">
+        <CityList Data={weatherData} />
+        <WeatherInfo Data={weatherData} />
+      </main>
+      <Footer />
     </div>
   );
 }
-
-export default App;

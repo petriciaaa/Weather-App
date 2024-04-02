@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.card-temp {
+  color: #fff;
+  font-family: "Inter";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  text-shadow: 0.1px 0.1px 0.1px black;
+}
+
+.card-date {
+  color: #fff;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 120%; /* 28.8px */
+}
+
+.wind-info {
+  color: #fff;
+  text-shadow: -1.398px 2.098px 0.699px rgba(0, 0, 0, 0.1);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+.card-hour {
+  color: #fff;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 120%; /* 28.8px */
+}
+.card-stick {
+  width: 1px;
+  height: 16px;
+  background: #fff;
+}

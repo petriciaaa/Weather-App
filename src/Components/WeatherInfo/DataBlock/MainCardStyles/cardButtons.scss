@@ -1,0 +1,76 @@
+.btn-block {
+  display: flex;
+  margin-left: 380px;
+  @media (max-width: 1200px) {
+    margin-left: 180px;
+  }
+  @media (max-width: 800px) {
+    margin-left: 150px;
+  }
+  @media (max-width: 700px) {
+    margin-left: 200px;
+  }
+  @media (max-width: 500px) {
+    margin-left: 80px;
+  }
+
+  @media (max-width: 400px) {
+    margin-left: 70px;
+  }
+}
+.switchTemp-btn {
+  border: none;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &.white {
+    background: linear-gradient(
+      90deg,
+      rgba(182, 182, 222, 1) 4%,
+      rgba(185, 182, 221, 1) 100%,
+      rgba(148, 187, 233, 1) 100%
+    );
+    color: white;
+  }
+  &.gray {
+    background: linear-gradient(
+      90deg,
+      rgba(182, 182, 222, 1) 0%,
+      rgba(183, 171, 203, 1) 0%
+    );
+    color: white;
+  }
+  &.shimmer {
+    animation-play-state: paused;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28.8px;
+  height: 28px;
+  flex-shrink: 0;
+  border-bottom-left-radius: 45%;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  background: rgba(255, 255, 255, 0.18);
+  &-first {
+    border-bottom-left-radius: 0%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 45%;
+    border-bottom-right-radius: 45%;
+  }
+}
+.btn-txt {
+  flex-shrink: 0;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
